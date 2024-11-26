@@ -1,0 +1,6 @@
+# pdflatex output
+*.aux
+*.log
+*.pdf
+*.synctex.gz
+*.toc
