@@ -1,7 +1,14 @@
-\documentclass{article}
+\documentclass{book}
 \usepackage{graphicx} % Required for inserting images
 \usepackage{emptypage}
 \usepackage{array}
+\usepackage{hyperref}
+
+\usepackage[T1]{fontenc}\usepackage[utf8]{inputenc}
+\usepackage{multirow}\usepackage{float} \usepackage{tabularx}
+
+\renewcommand{\chaptername}{}
+\renewcommand{\contentsname}{Indice}
 
 \author{R. Regina, F. Rossetti, F. Trotti}
 \title{DietiEstates25}
@@ -12,29 +19,13 @@
 \maketitle
 
 \tableofcontents
-\newpage
 
-\section{Versions}
-\begin{center}
-\begin{tabular}{| m{8em} | m{8cm}|}
-    \hline
-    Version & Changes \\
-    \hline
-    1.0 & first version. \\
-    \hline
-\end{tabular}
-\end{center}
+\include{versioni.tex}
 
-\section{Introduzione}
-\input{introduzione.tex}
+\include{introduzione.tex}
 
-\section{Descrizione del sistema}
-\input{descrizione-del-sistema.tex}
+\include{descrizione-del-sistema.tex}
 
-\section{Specifica dei requisiti}
-
-\section{System Design}
-
-\section{System Testing}
+\include{specifica-dei-requisiti.tex}
 
 \end{document}
