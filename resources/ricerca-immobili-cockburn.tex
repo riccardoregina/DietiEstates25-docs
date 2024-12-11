@@ -1,0 +1,70 @@
+% Per tabelle che occupano più di una pagina:
+%  longtblr al posto di tblr
+\begin{longtblr}[
+    caption = {Diagramma di Cockburn}
+]{
+    width = 10cm, %per fissare una larghezza
+    column{1} = {3cm},
+    column{2} = {0.8cm},
+    column{3-4} = {3cm},
+	vlines = {}, %per le cornici verticali
+	hlines = {}, %per le cornici orizzontali
+    % Merge delle righe/colonne:
+    cell{1-7}{2} = {c = 3}{10cm, halign = l},
+    cell{8}{1} = {r = 7}{valign = t},
+    cell{15}{1} = {r = 3}{valign = t},
+    cell{18}{1} = {r = 5}{valign = t},
+    cell{23}{1} = {r = 2}{valign = t},
+    cell{25}{1} = {r = 3}{valign = t},
+    cell{28}{1} = {r = 3}{valign = t},
+    cell{31}{1} = {r = 3}{valign = t},
+    cell{34}{2} = {c = 3}{10cm, halign = l}
+}
+USE CASE \#X & Ricerca immobili & & \\
+Goal in Context & Il Cliente vuole trovare annunci di immobili di suo interesse. & & \\
+Preconditions & Nessuna precondizione. & & \\
+Success End Condition & Il sistema tiene traccia della ricerca effettuata, salvandola tra le “Ricerche recenti”. & & \\
+Fail End Condition & Il sistema tiene traccia della ricerca effettuata, salvandola tra le “Ricerche recenti”. & & \\
+Primary Actor & Cliente & & \\
+Trigger & Il Cliente clicca sulla barra di ricerca della schermata principale. & & \\
+Main Scenario & Step & Cliente & Sistema   \\
+ & 1 & Trigger & \\
+ & 2 & & Mostra: 
+ le eventuali ricerche recenti;
+ la ricerca tramite punto sulla mappa. \\
+ & 3 & Inserisce testo nella barra di ricerca.
+ Seleziona il tipo di annuncio.
+ Clicca su “Cerca”. & \\
+ & 4 & & Mostra la schermata completa di ricerca. Mostrando i risultati. \\
+ & 5 & Clicca su un risultato. & \\
+ & 6 & & Mostra in sovrimpressione la schermata dettagliata dell’annuncio. Termina use case. \\
+Extension A: 
+click su una ricerca recente & Step & Cliente & Sistema \\
+ & 3.a & Clicca su una ricerca recente. & \\
+ & 4.a & & Torna allo step 4 del main scenario. \\
+Extension B: 
+ricerca tramite punto sulla mappa. & Step & Cliente & Sistema \\
+ & 3.b & Clicca su “Ricerca tramite punto sulla mappa”. & \\
+ & 4.b & & Mostra la schermata di ricerca tramite punto sulla mappa. \\
+ & 5.b & Seleziona un punto sulla mappa, specificando un raggio di ricerca e clicca conferma. & \\
+ & 6.b & & Torna allo step 4 del main scenario. \\
+Extension C:
+la ricerca non ha prodotto risultati. & Step & Cliente & Sistema \\
+ & 4.c & & Mostra la schermata “Non sono stati trovati risultati”. Torna allo step 2 del main scenario. \\
+Extension D:
+il cliente non ha inserito testo 
+nella barra di ricerca e ha cliccato 
+su “Cerca”. & Step & Cliente & Sistema \\
+ & 3.d & Non inserisce testo nella barra di ricerca & \\
+ & 4.d & & Mostra messaggio “Inserisci una zona o un indirizzo”. Torna allo step 2 del main scenario. \\
+Extension E: applica filtri. & Step & Cliente & Sistema \\
+ & 5.e & Modifica dei filtri di ricerca. & \\
+ & 6.e & & Torna allo step 4 del main scenario. \\
+Extension F: annulla ultima operazione & Step & Cliente & Sistema \\
+ & 5.b.f & Clicca sul pulsante annulla & \\
+ & 6.b.f & & Torna allo step 2 del main scenario. \\
+Open Issues & \begin{list}{+}{}
+    \item Modellare o meno la barra di ricerca superiore?
+    \item Modellare o meno il ritorno alla home con il click sul logo? E’ possibile scrivere una cosa del tipo Step:tutti per intendere che può avvenire in ogni step del Cliente?
+\end{list} & & \\
+\end{longtblr}

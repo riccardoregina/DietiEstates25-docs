@@ -1,39 +1,38 @@
-\begin{table}[H]    
-
-    \def\arraystretch{1.5}
-    
-    
-    \begin{tabularx}{\linewidth}{|l|X|X|X|}
-    
-      \hline Use Case \#N & \multicolumn{3} {l|}{Name} \\ \hline Goal in
-      Context & \multicolumn{3}{>{\hsize=\dimexpr 3\hsize+4\tabcolsep+2\arrayrulewidth\relax}X|}{%
-        This is a very long line. Lorem ipsum dolor sit amet, consectetur
-        adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-        dolore magna aliqua.  } \\
-     \hline Preconditions &
-      \multicolumn{3}{l|}{} \\
-     \hline Success End Conditions &
-      \multicolumn{3}{l|}{} \\
-     \hline Failed End Conditions &
-      \multicolumn{3}{l|}{} \\
-     \hline Primary Actor &
-      \multicolumn{3}{l|}{} \\
-     \hline Trigger & \multicolumn{3}{l|}{} \\
-    
-      \hline \multirow{2}{*}{Description} & Step & User Action & System \\
-    
-      \cline{2-4} & & & \\
-     \hline \multirow{2}{*}{Extensions} & Step &
-      User Action & System \\
-     \cline{2-4} & & & \\
-     \hline
-      \multirow{2}{*}{Subvariations} & Step & User Action & System \\
-    
-      \cline{2-4} & & & \\
-     \hline Notes & \multicolumn{3}{l|}{} \\
-     \hline
-    
-    
-    \end{tabularx}
-    
-    \end{table}
+% Per tabelle che occupano più di una pagina:
+%  longtblr al posto di tblr
+\begin{tblr}[
+    caption = {Diagramma di Cockburn}
+]{
+    column{1} = {3cm},
+    column{2} = {0.8cm},
+    column{3-4} = {3cm},
+	vlines = {}, %per le cornici verticali
+	hlines = {}, %per le cornici orizzontali
+    % Merge delle righe/colonne:
+    cell{1-7}{2} = {c = 3}{10cm, halign = l},
+    cell{8}{1} = {r = 4}{valign = t},
+    cell{12}{1} = {r = 4}{valign = t},
+    cell{16}{1} = {r = 4}{valign = t},
+    cell{20}{2} = {c = 3}{10cm, halign = l}
+}
+USE CASE \#X & & & \\
+Goal in Context & & & \\
+Preconditions & & & \\
+Success End Condition & & & \\
+Fail End Condition & & & \\
+Primary Actor & & & \\
+Trigger & & & \\
+Main Scenario   & Step & Actor1 & System   \\
+ & & & \\
+ & & & \\
+ & & & \\
+Extension A & Step & Actor1 & System   \\
+ & & & \\
+ & & & \\
+ & & & \\
+Extension B & Step & Actor1 & System   \\
+ & & & \\
+ & & & \\
+ & & & \\
+Open Issues & & & \\
+\end{tblr}
