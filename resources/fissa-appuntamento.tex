@@ -1,0 +1,45 @@
+% Per tabelle che occupano più di una pagina:
+%  longtblr al posto di tblr
+\begin{longtblr}[
+    caption = {Diagramma di Cockburn del caso d'uso \textit{Fissa Appuntamento}.}
+]{
+    column{1} = {3cm},
+    column{2} = {0.8cm},
+    column{3-5} = {3cm},
+	vlines = {}, %per le cornici verticali
+	hlines = {}, %per le cornici orizzontali
+    % Merge delle righe/colonne:
+    cell{1-7}{2} = {c = 4}{10cm, halign = l},
+    cell{8}{1} = {r = 9}{valign = t},
+    cell{17}{1} = {r = 3}{valign = t},
+    cell{20}{1} = {r = 3}{valign = t},
+    cell{23}{1} = {r = 3}{valign = t},
+    cell{26}{2} = {c = 4}{10cm, halign = l}
+}
+USE CASE & Fissa appuntamento & & & \\
+Goal in Context & Il Cliente vuole fissare un appuntamento con un Agente per la visione dell’immobile di interesse. & & & \\
+Preconditions & Il Cliente deve essersi autenticato. & & & \\
+Success End Condition & Il sistema tiene traccia della richiesta di appuntamento da parte del Cliente e la invia all’Agente. & & & \\
+Fail End Condition & Il sistema non tiene traccia dell’attività non completata. & & & \\
+Primary Actor & Cliente & & & \\
+Trigger & Il Cliente preme il pulsante “Richiedi appuntamento” della schermata dettagliata di un annuncio. & & & \\
+Main Scenario   & Step & Cliente & Agente & System \\
+ & 1 & Trigger action. & & \\
+ & 2 & & & Mostra la schermata di selezione delle disponibilitá e delle fasce orarie. \\
+ & 3 & Seleziona le sue preferenze. Clicca su Prosegui. & & \\
+ & 4 & & & Mostra la schermata di resoconto della richiesta di visita. \\
+ & 5 & Clicca su “Invia richiesta”. & & \\
+ & 6 & & & Mostra un feedback di richiesta effettuata. \\
+ & 7 & & Accetta la richiesta. & \\
+ & 8 & & & Invia al Cliente la notifica di conferma dell’appuntamento e termina lo use case. \\
+Extension A & Step & Cliente & Agente & System \\
+ & 3.a & Clicca su “Annulla”. & & \\
+ & 4.a & & & Mostra schermata di dettaglio dell annuncio e termina use case.  \\
+Extension B & Step & Cliente & Agente & System \\
+ & 5.b & Clicca su “Annulla”. & & \\
+ & 6.b & & & Torna allo step 2 del main scenario. \\
+Extension C & Step & Cliente & Agente & System \\
+ & 7.c & & Rifiuta la richiesta. & \\
+ & 8.c & & & Invia al Cliente la notifica di rifiuto dell’appuntamento e termina lo use case. \\
+Open Issues & & & & \\
+\end{longtblr}
