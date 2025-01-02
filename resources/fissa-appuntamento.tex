@@ -22,19 +22,19 @@ Preconditions & Il Cliente deve essersi autenticato. & & & \\
 Success End Condition & Il sistema tiene traccia della richiesta di appuntamento da parte del Cliente e la invia all’Agente. & & & \\
 Fail End Condition & Il sistema non tiene traccia dell’attività non completata. & & & \\
 Primary Actor & Cliente & & & \\
-Trigger & Il Cliente preme il pulsante “Richiedi appuntamento” della schermata dettagliata di un annuncio. & & & \\
+Trigger & Il Cliente preme il pulsante “Richiedi appuntamento” di \ref{fig:M-FA1}. & & & \\
 Main Scenario   & Step & Cliente & Agente & System \\
  & 1 & Trigger action. & & \\
- & 2 & & & Mostra la schermata di selezione delle disponibilitá e delle fasce orarie. \\
+ & 2 & & & Mostra \ref{fig:M-FA2}. \\
  & 3 & Seleziona le sue preferenze. Clicca su Prosegui. & & \\
- & 4 & & & Mostra la schermata di resoconto della richiesta di visita. \\
+ & 4 & & & Mostra \ref{fig:M-FA3}. \\
  & 5 & Clicca su “Invia richiesta”. & & \\
- & 6 & & & Mostra un feedback di richiesta effettuata. \\
+ & 6 & & & Notifica al Cliente l'invio della richiesta. \\
  & 7 & & Accetta la richiesta. & \\
- & 8 & & & Invia al Cliente la notifica di conferma dell’appuntamento e termina lo use case. \\
+ & 8 & & & Notifica al Cliente la conferma dell’appuntamento e termina lo use case. \\
 Extension A & Step & Cliente & Agente & System \\
  & 3.a & Clicca su “Annulla”. & & \\
- & 4.a & & & Mostra schermata di dettaglio dell annuncio e termina use case.  \\
+ & 4.a & & & Mostra \ref{fig:M-FA1} e termina use case.  \\
 Extension B & Step & Cliente & Agente & System \\
  & 5.b & Clicca su “Annulla”. & & \\
  & 6.b & & & Torna allo step 2 del main scenario. \\

@@ -26,18 +26,16 @@ Preconditions & Nessuna precondizione. & & \\
 Success End Condition & Il sistema tiene traccia della ricerca effettuata, salvandola tra le “Ricerche recenti”. & & \\
 Fail End Condition & Il sistema tiene traccia della ricerca effettuata, salvandola tra le “Ricerche recenti”. & & \\
 Primary Actor & Cliente & & \\
-Trigger & Il Cliente clicca sulla barra di ricerca della schermata principale. & & \\
+Trigger & Il Cliente clicca sulla barra di ricerca di \ref{fig:M-RI1}. & & \\
 Main Scenario & Step & Cliente & Sistema   \\
  & 1 & Trigger & \\
- & 2 & & Mostra: 
- le eventuali ricerche recenti;
- la ricerca tramite punto sulla mappa. \\
+ & 2 & & Mostra \ref{fig:M-RI2}. \\
  & 3 & Inserisce testo nella barra di ricerca.
  Seleziona il tipo di annuncio.
  Clicca su “Cerca”. & \\
- & 4 & & Mostra la schermata completa di ricerca. Mostrando i risultati. \\
+ & 4 & & Mostra \ref{fig:M-RI3} \\
  & 5 & Clicca su un risultato. & \\
- & 6 & & Mostra in sovrimpressione la schermata dettagliata dell’annuncio. Termina use case. \\
+ & 6 & & Mostra \ref{fig:M-RI4} Termina use case. \\
 Extension A: 
 click su una ricerca recente & Step & Cliente & Sistema \\
  & 3.a & Clicca su una ricerca recente. & \\
@@ -50,7 +48,7 @@ ricerca tramite punto sulla mappa. & Step & Cliente & Sistema \\
  & 6.b & & Torna allo step 4 del main scenario. \\
 Extension C:
 la ricerca non ha prodotto risultati. & Step & Cliente & Sistema \\
- & 4.c & & Mostra la schermata “Non sono stati trovati risultati”. Torna allo step 2 del main scenario. \\
+ & 4.c & & Mostra \ref{fig:M-RI3bis}. Torna allo step 2 del main scenario. \\
 Extension D: nessun testo inserito.
  & Step & Cliente & Sistema \\
  & 3.d & non inserisce testo nella barra di ricerca e clicca su “Cerca”. & \\
