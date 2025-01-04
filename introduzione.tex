@@ -4,7 +4,7 @@
 Lo scopo di questo documento é presentare una descrizione dettagliata del 
 prodotto software DietiEstates25. Verranno illustrati: 
 \begin{list}{$\cdot$}{}
-    \item i requisiti che il prodotto software dovrá soddisfare e i metodi con cui questi sono stati raccolti.
+    \item i requisiti e i metodi con cui questi sono stati raccolti.
     \item l'architettura del sistema.
     \item la metodologia ed i criteri di testing.
 \end{list} 
@@ -28,12 +28,12 @@ DietiEstates25 é un software che:
     Gestore & Un componente di amministrazione dell'agenzia immobiliare 
     che si occupa di gestire gli agenti dell'agenzia. \\
     \hline
-    Amministratore & L'unico manager con privilegi. E' gerarchicamente 
-    elevato rispetto agli altri manager.
+    Amministratore & L'amministratore dell'agenzia immobiliare, nonché 
+    l'unico gestore con privilegi superiori agli altri.
     \\
     \hline
     Agente & Un agente immobiliare appartenente ad un'agenzia immobiliare 
-    che si occupa di gestione degli annunci e delle relazioni con i clienti (customers). \\
+    che si occupa di gestione degli annunci e delle relazioni con i clienti. \\
     \hline
     Immobile & Un bene immobile, ovvero un bene stabilmente fisso che non è 
     possibile spostare, che può essere sia un fabbricato che un terreno.\\
@@ -46,8 +46,8 @@ DietiEstates25 é un software che:
     Appuntamento & Visita dell'immobile concordata tra cliente ed agente al fine del 
     suo eventuale acquisto/affitto.\\
     \hline
-    Dati personali & I dati che un utente ha inserito in fase di registrazione: 
-    e-mail, telefono, nome, cognome \dots \\
+    Dati personali & I dati che un utente ha inserito in fase di registrazione
+    o in fasi successive: e-mail, telefono, nome, cognome \dots \\
     \hline
 
 \end{tabular}
