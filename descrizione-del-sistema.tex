@@ -75,11 +75,9 @@ Dall'analisi di Roberto, si evince che il sistema deve:
     \item di analizzare feedback lasciati dai clienti mediante una dashboard (verrà supportato in futuro).
 \end{list}
 
-
-\section{Use case diagram}
 \begin{figure}[h]
     \centering
-    \includegraphics[width=\textwidth]{assets/diagrams/use-case-diagram.jpg}
+    \includegraphics[width=\textwidth]{assets/diagrams/use-case-diagram.png}
     \caption{Use case diagram}
     \label{fig:use-case-diagram}
 \end{figure}
@@ -99,7 +97,7 @@ traccia dell'accesso.
 
 \subsubsection{Crea Agente}
 Il gestore accede alla schermata di creazione di un agente, inserisce i 
-dati necessari e conferma. Il sistema crea un nuovo profilo Agente.
+dati necessari e conferma. Il sistema crea un nuovo profilo Agent.
 
 \subsubsection{Modifica Agente}
 Il gestore accede alla schermata di gestione degli agenti, da cui 
@@ -119,7 +117,7 @@ tiene traccia dei cambiamenti.
 \subsection{Amministratore}
 \subsubsection{Crea Gestore}
 L'Amministratore accede alla schermata di creazione di un gestore, 
-inserisce i dati necessari e conferma. Il sistema crea un nuovo profilo Gestore.
+inserisce i dati necessari e conferma. Il sistema crea un nuovo profilo Manager.
 
 \subsubsection{Modifica Gestore}
 L'amministratore accede alla schermata di gestione dei gestori, da cui 
@@ -131,18 +129,16 @@ L'amministratore accede alla schermata di gestione dei gestori, da cui
 seleziona un gestore per l'eliminazione. Il sistema tiene traccia delle
 modifiche.
 
-\subsubsection{Registra l'Agenzia}
-L'admin, non ancora registrato al sistema, accede alla schermata di registrazione 
-ed inserisce la propria email. Il sistema invia all'indirizzo email le credenziali 
-temporanee per il primo accesso. Il sistema creerà il profilo Admin solo se l'Admin 
-effettuerà il primo Log-in.
+\subsubsection{Registra Agenzia}
+L'amministratore, non ancora registrato al sistema, accede alla schermata di registrazione 
+ed inserisce i propri dati e i dati dell'agenzia immobiliare. Il sistema registra l'agenzia 
+e crea un profilo Admin per l'amministratore.
 
 \subsection{Cliente}
 \subsubsection{si Registra}
 L'utente accede alla schermata per la registrazione, si registra tramite 
 un credential provider esterno oppure compilando il form di registrazione. 
-Il sistema crea un profilo Utente ed invia una email di notifica 
-della registrazione.
+Il sistema crea un profilo Client.
 
 \subsubsection{Accede}
 L'utente accede alla schermata per l'accesso ed inserisce le credenziali 
@@ -152,31 +148,30 @@ dell'avvenuto accesso.
 
 \subsubsection{Ricerca Immobili}
 L'utente ricerca immobili tramite l'apposita barra, può ricercare 
-immobili da affittare o da acquistare. è possibile ricercare 
+immobili da affittare o da acquistare. É possibile ricercare 
 l'immobile utilizzando diversi filtri. il sistema mostra i risultati ottenuti.
 
 \subsubsection{Modifica dati personali}
 L'utente accede alla schermata di visualizzazione dei dati personali, modifica 
 i campi del form predisposti alla modifica e una volta finito clicca su salva. 
-Il sistema salva i nuovi dati e li visualizza nella schermata di visualizzazione 
-dei dati personali.
+Il sistema salva le modifiche.
 
 \subsubsection{Gestisci notifiche}
 L'utente accede alla schermata di gestione delle notifiche, dove
 può modificare la modalità di ricezione delle notifiche, organizzate 
 in categorie, tramite appositi pulsanti. L'utente conferma le modifiche. 
-Il sistema tiene traccia delle modifiche ed informa di conseguenza l'utente.
+Il sistema tiene traccia delle modifiche.
 
 \subsubsection{Valuta Agente}
-L'utente, nella schermata dell'annuncio selezionato, valuta, da una a cinque 
-stelle, l'agente immobiliare che ha inserito l'annuncio.
+L'utente, nella schermata dell'annuncio selezionato, valuta, con un voto da 1 
+a 5, l'agente immobiliare che relativo all'annuncio.
 
 \subsubsection{Fissa Appuntamento (dal punto di vista del Cliente)}
 Un cliente, dalla schermata dettagliata dell'annuncio selezionato, clicca sul 
-pulsante “Richiedi Appuntamento”. Verrà mostrata una nuova schermata in cui il 
-cliente potrà specificare le proprie disponibilità (giorni, fasce orarie). 
+pulsante “Richiedi Appuntamento”. Il sistema mostra una nuova schermata in cui il 
+cliente puó specificare le proprie disponibilità (giorni, fasce orarie). 
 Dopodiché, il cliente invia la richiesta di appuntamento. Il sistema tiene
-traccia della richiesta.
+traccia della richiesta e notifica l'agente.
 
 \subsection{Agente}
 \subsubsection{Accede}

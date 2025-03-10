@@ -62,6 +62,45 @@ più significativi e centrali.
 \end{figure}
 
 \section{Requisiti non funzionali}
+Il sistema deve soddisfare le seguenti qualitá:
+\begin{list}{$\cdot$}{}
+    \item availability, una scarsa availability é causa di perdita di 
+    credibilitá e di utenza.
+    \item adaptability, un utente deve poter accedere al servizio da tutti 
+    i dispositivi possibili.
+    \item performance efficiency, un software di ricerca lento è un software 
+    morto in partenza.
+    \item usability, l'utente deve poter utilizzare appieno il software già 
+    dal primo utilizzo.
+    \item scalability, una qualitá imprescindibile per un sistema utilizzato 
+    da, potenzialmente, milioni di persone contemporaneamente.
+    \item maintainability, la qualitá, interna, fondamentale per il successo 
+    di un software. Essa, se presente, garantisce al team produttivitá nel tempo.
+\end{list}
 
-\section{Requisiti di sistema}
+Il sistema deve rispettare le prassi e le tecnologie allo stato dell'arte per 
+garantire security, soprattutto dal lato della confidentiality, in ottica di 
+rispetto della privacy e della sicurezza dei dati personali dell'utente.
+
 \section{Requisiti di dominio}
+Ciascun annuncio deve possere le seguenti caratteristiche obbligatorie:
+\begin{list}{$\cdot$}{}
+    \item Tipologia dell'immobile. Valore selezionabile da elenco predefinito 
+    (appartamento, villa, terreno, ecc.)
+    \item Superficie. Valore numerico espresso in metri quadri ($m^2$).
+    \item Numero di locali (non previsto per alcune tipologie di immobile).
+    \item Numero di bagni (non previsto per alcune tipologie di immobile).
+    \item Piano (non previsto per alcune tipologie di immobile).
+    \item Prezzo/canone.
+    \item Classe energetica conforme alla classificazione APE (da A4 a G).
+    \item Indirizzo e coordinate geografiche.
+    \item Comune.
+    \item Provincia.
+    \item Contatto di un agente immobiliare.
+    \item Titolo annuncio.
+\end{list}
+
+Le caratteristiche obbligatorie degli annunci potranno essere aggiornate in 
+funzione di modifiche normative o esigenze di mercato. Il sistema deve essere 
+progettato per adattarsi flessibilmente a tali variazioni con impatto minimo 
+sull'architettura complessiva.
