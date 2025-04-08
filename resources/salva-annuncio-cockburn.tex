@@ -1,0 +1,42 @@
+% Per tabelle che occupano più di una pagina:
+%  longtblr al posto di tblr
+\begin{tblr}[
+    caption = {Diagramma di Cockburn del caso d'uso Salva Annuncio}
+]{
+    column{1} = {3cm},
+    column{2} = {0.8cm},
+    column{3-4} = {3cm},
+	vlines = {}, %per le cornici verticali
+	hlines = {}, %per le cornici orizzontali
+    % Merge delle righe/colonne:
+    cell{1-7}{2} = {c = 3}{10cm, halign = l},
+    cell{8}{1} = {r = 4}{valign = t},
+    cell{12}{1} = {r = 4}{valign = t},
+    cell{16}{1} = {r = 4}{valign = t},
+    cell{20}{2} = {c = 3}{10cm, halign = l}
+}
+USE CASE & Salva Annuncio & & \\
+Goal in Context & Il Cliente vuole salvare l'annuncio trovato tra i preferiti
+in modo tale da accedervi piú velocemente in futuro & & \\
+Preconditions & Il Cliente deve essere autenticato & & \\
+Success End Condition & Il sistema aggiunge l'annuncio tra gli annunci salvati
+del Cliente & & \\
+Fail End Condition & Il sistema non aggiunge l'annuncio tra gli annunci salvati
+del Cliente & & \\
+Primary Actor & Cliente & & \\
+Trigger & Il Cliente clicca sul pulsante a forma di stella presente sull'annuncio
+d'interesse, nella schermata X & & \\
+Main Scenario   & Step & Cliente & System   \\
+ & 1 & Trigger & \\
+ & 2 & & \\
+ & 3 & & \\
+Extension A & Step & Cliente & System   \\
+ & & & \\
+ & & & \\
+ & & & \\
+Extension B & Step & Cliente & System   \\
+ & & & \\
+ & & & \\
+ & & & \\
+Open Issues & & & \\
+\end{tblr}

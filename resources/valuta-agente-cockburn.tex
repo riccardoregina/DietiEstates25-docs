@@ -1,0 +1,38 @@
+% Per tabelle che occupano più di una pagina:
+%  longtblr al posto di tblr
+\begin{longtblr}[
+    caption = {Diagramma di Cockburn del caso d'uso Valuta Agente}
+]{
+    column{1} = {3cm},
+    column{2} = {0.8cm},
+    column{3-4} = {3cm},
+	vlines = {}, %per le cornici verticali
+	hlines = {}, %per le cornici orizzontali
+    % Merge delle righe/colonne:
+    cell{1-7}{2} = {c = 3}{10cm, halign = l},
+    cell{8}{1} = {r = 4}{valign = t},
+    cell{12}{1} = {r = 4}{valign = t},
+    cell{16}{1} = {r = 4}{valign = t},
+    cell{20}{2} = {c = 3}{10cm, halign = l}
+}
+USE CASE & Valuta Agente & & \\
+Goal in Context & Il Cliente vuole valutare la propria esperienza con un Agente & & \\
+Preconditions & Il Cliente deve essere autenticato & & \\
+Success End Condition & Il sistema tiene traccia della valutazione del Cliente & & \\
+Fail End Condition & Il sistema non tiene traccia della valutazione del Cliente & & \\
+Primary Actor & Cliente & & \\
+Trigger & Il Cliente clicca sul pulsante "Aggiungi una recensione" della schermata X & & \\
+Main Scenario & Step & Cliente & System   \\
+ & 1 & Trigger & \\
+ & 2 & & \\
+ & 3 & & \\
+Extension A & Step & Cliente & System   \\
+ & & & \\
+ & & & \\
+ & & & \\
+Extension B & Step & Cliente & System   \\
+ & & & \\
+ & & & \\
+ & & & \\
+Open Issues & & & \\
+\end{longtblr}
