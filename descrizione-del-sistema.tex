@@ -1,15 +1,15 @@
 \chapter{Descrizione del sistema}
 \section{Raccolta dei requisiti}
-La raccolta dei requisiti è stata portata avanti attraverso le seguenti metodologie:
+I requisiti sono stati raccolti tramite le seguenti metodologie:
 \begin{list}{$\cdot$}{}
     \item interview con gli stakeholder interessati (rappresentata dalla traccia testuale ai fini dell’esame).
     \item identificazione ed Analisi delle personas.
 \end{list}
 
 \subsection{Personas}
-Sono state identificate quattro personas. Le prime due sono personas
+Sono state identificate quattro personas, di cui le prime due sono personas
 significative per la classe dei clienti, la terza è significativa per
-la classe degli agenti immobiliari, mentre la quarta ed ultima lo è
+la classe degli agenti immobiliari, la quarta ed ultima lo è
 per la classe degli amministratori.
 
 \noindent
@@ -41,7 +41,7 @@ Dall'analisi di Maria, si evince che il sistema deve:
 \begin{list}{$\cdot$}{}
     \item presentare un'interfaccia rifinita per veicolare professionalità.
     \item permettere di telefonare l'agente immobiliare.
-    \item di visualizzare parchi, scuole nella mappa interattiva (verrà supportato in futuro).
+    \item permettere di visualizzare parchi, scuole nella mappa interattiva (verrà supportato in futuro).
 \end{list}
 
 \begin{figure}[h]
@@ -87,65 +87,9 @@ Dall'analisi di Roberto, si evince che il sistema deve:
 Per ogni use case individuato, si fornisce in questa sezione una
 specifica di tipo brief.
 I requisiti funzionali verranno raggruppati secondo
-classi di utenti: gestore, amministratore, agente, cliente.
+classi di utenti: utente, gestore, amministratore, cliente.
 
-\subsection{Gestore}
-\subsubsection{Accede}
-Il gestore accede alla schermata per l'accesso ed inserisce le credenziali, 
-accedendo così alla schermata principale per i gestori. Il sistema tiene 
-traccia dell'accesso.
-
-\subsubsection{Crea Agente}
-Il gestore accede alla schermata di creazione di un agente, inserisce i 
-dati necessari e conferma. Il sistema crea un nuovo profilo Agent.
-
-\subsubsection{Modifica Agente}
-Il gestore accede alla schermata di gestione degli agenti, da cui 
-seleziona un agente per la modifica. Il sistema tiene traccia delle
-modifiche.
-
-\subsubsection{Elimina Agente}
-Il gestore accede alla schermata di gestione degli agenti, da cui 
-seleziona un agente per la sua eliminazione. Il sistema tiene traccia delle
-modifiche.
-
-\subsubsection{Modifica dati personali}
-Il gestore accede alla schermata relativa alla gestione del proprio 
-profilo e modifica i dati che è possibile modificare. Il sistema 
-tiene traccia dei cambiamenti.
-
-\subsection{Amministratore}
-\subsubsection{Crea Gestore}
-L'Amministratore accede alla schermata di creazione di un gestore, 
-inserisce i dati necessari e conferma. Il sistema crea un nuovo profilo Manager.
-
-\subsubsection{Modifica Gestore}
-L'amministratore accede alla schermata di gestione dei gestori, da cui 
-seleziona un gestore per la modifica. Il sistema tiene traccia delle
-modifiche.
-
-\subsubsection{Elimina Gestore}
-L'amministratore accede alla schermata di gestione dei gestori, da cui 
-seleziona un gestore per l'eliminazione. Il sistema tiene traccia delle
-modifiche.
-
-\subsubsection{Registra Agenzia}
-L'amministratore, non ancora registrato al sistema, accede alla schermata di registrazione 
-ed inserisce i propri dati e i dati dell'agenzia immobiliare. Il sistema registra l'agenzia 
-e crea un profilo Admin per l'amministratore.
-
-\subsection{Cliente}
-\subsubsection{si Registra}
-L'utente accede alla schermata per la registrazione, si registra tramite 
-un credential provider esterno oppure compilando il form di registrazione. 
-Il sistema crea un profilo Client.
-
-\subsubsection{Accede}
-L'utente accede alla schermata per l'accesso ed inserisce le credenziali 
-compilando il form di accesso oppure utilizzando un credential provider esterno. 
-Il sistema mostra la schermata principale di ricerca e tiene traccia 
-dell'avvenuto accesso.
-
+\subsection{Utente}
 \subsubsection{Ricerca Immobili}
 L'utente ricerca immobili tramite l'apposita barra, può ricercare 
 immobili da affittare o da acquistare. É possibile ricercare 
@@ -161,6 +105,63 @@ L'utente accede alla schermata di gestione delle notifiche, dove
 può modificare la modalità di ricezione delle notifiche, organizzate 
 in categorie, tramite appositi pulsanti. L'utente conferma le modifiche. 
 Il sistema tiene traccia delle modifiche.
+
+\subsubsection{Salva Annuncio}
+L'utente, una volta visualizzati i risultati di una ricerca di immobili,
+clicca sul pulsante a forma di stella. Il sistema tiene traccia
+dell'operazione.
+
+\subsection{Gestore}
+\subsubsection{Accede}
+Il gestore accede alla schermata per l'accesso ed inserisce le credenziali, 
+accedendo così alla schermata principale per i gestori. Il sistema tiene 
+traccia dell'accesso.
+
+\subsubsection{Crea Agente}
+Il gestore accede alla schermata di creazione di un agente, inserisce i 
+dati necessari e conferma. Il sistema crea un nuovo utente Agent.
+
+\subsubsection{Modifica Agente}
+Il gestore accede alla schermata di gestione degli agenti, da cui 
+seleziona un agente per la modifica. Il sistema tiene traccia delle
+modifiche.
+
+\subsubsection{Elimina Agente}
+Il gestore accede alla schermata di gestione degli agenti, da cui 
+seleziona un agente per la sua eliminazione. Il sistema tiene traccia delle
+modifiche.
+
+\subsection{Amministratore}
+\subsubsection{Crea Gestore}
+L'Amministratore accede alla schermata di creazione di un gestore, 
+inserisce i dati necessari e conferma. Il sistema crea un nuovo utente Manager.
+
+\subsubsection{Modifica Gestore}
+L'amministratore accede alla schermata di gestione dei gestori, da cui 
+seleziona un gestore per la modifica. Il sistema tiene traccia delle
+modifiche.
+
+\subsubsection{Elimina Gestore}
+L'amministratore accede alla schermata di gestione dei gestori, da cui 
+seleziona un gestore per l'eliminazione. Il sistema tiene traccia delle
+modifiche.
+
+\subsubsection{Registra Agenzia}
+L'amministratore, non ancora registrato al sistema, accede alla schermata di registrazione 
+ed inserisce i propri dati e i dati dell'agenzia immobiliare. Il sistema registra l'agenzia 
+e crea un utente Admin per l'amministratore.
+
+\subsection{Cliente}
+\subsubsection{si Registra}
+L'utente accede alla schermata per la registrazione, si registra inserendo
+i dati necessari oppure tramite un credential provider esterno. 
+Il sistema crea un utente Client.
+
+\subsubsection{Accede}
+L'utente accede alla schermata per l'accesso ed inserisce le credenziali 
+compilando il form di accesso oppure utilizzando un credential provider esterno. 
+Il sistema mostra la schermata principale di ricerca e tiene traccia 
+dell'avvenuto accesso.
 
 \subsubsection{Valuta Agente}
 L'utente, nella schermata dell'annuncio selezionato, valuta, con un voto da 1 
@@ -185,17 +186,10 @@ modifica dei dati personali. In questa schermata, l'agente può:
 \begin{list}{$\cdot$}{}
     \item modificare la propria biografia completa,
     \item modificare la foto profilo,
-    \item caricare il curriculum vitae,
     \item modificare la bio.
 \end{list} 
 L'agente conferma le modifiche effettuate. Il sistema tiene traccia 
 delle modifiche ed fornisce un feedback all'agente.
-
-\subsubsection{Ricerca Immobili}
-L'agente ricerca immobili tramite l'apposita barra di ricerca, può 
-ricercare immobili in vendita/affitto. È possibile ricercare l'immobile 
-utilizzando diversi filtri. Il sistema mostra i risultati ottenuti. 
-Gli annunci appartenenti all'agente sono indicati esplicitamente dal sistema.
 
 \subsubsection{Crea Annuncio}
 L'agente accede alla schermata di inserimento di un nuovo annuncio, dove 
@@ -213,15 +207,15 @@ seleziona un annuncio per la sua modifica. Verrà mostrata il form delle
 caratteristiche già menzionato nella descrizione del caso d'uso \textit{Crea Annuncio}.
 
 \subsubsection{Cancella Annuncio}
-L'agente accede alla schermata di visualizzazione dei propri annunci. Dopodiché 
-seleziona un annuncio e clicca sul pulsante cancella. Viene quindi chiesta all'agente 
-la motivazione della cancellazione. 
-Se la cancellazione dell'annuncio è dovuta alla vendita/affitto dell'immobile, 
-allora il sistema conserverà l'annuncio nella sezione venduti/affittati. Il 
-sistema tiene traccia dell'operazione ed informa l'agente di ciò.
+L'agente, nella sezione dei propri annunci, seleziona un annuncio e clicca sul 
+pulsante "cancella". Il sistema tiene traccia delle modifiche.
 
 \subsubsection{Fissa Appuntamento (dal punto di vista dell'agente)}
 Un agente riceve una notifica di richiesta di visita.
 La notifica contiene informazioni su giorni e fasce orarie richiesti
 dal cliente.
-Se l'agente clicca su "Accetta", viene mostrata la schermata di selezione dell'orario e del giorno (come quella dell'utente) contenente le disponibilità indicate dal cliente. Da questa schermata, l'agente sceglie data ed ora dell'appuntamento e conferma l'appuntamento, oppure clicca su "Annulla", tornando allo step precedente.
+Se l'agente clicca su "Accetta", viene mostrata la schermata di selezione 
+dell'orario e del giorno (come quella dell'utente) contenente le disponibilità 
+indicate dal cliente. Da questa schermata, l'agente sceglie data ed ora 
+dell'appuntamento e conferma l'appuntamento, oppure clicca su "Annulla", 
+tornando allo step precedente.
