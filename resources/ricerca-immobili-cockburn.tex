@@ -22,8 +22,8 @@
 USE CASE & Ricerca Immobili & & \\
 Goal in Context & Il Cliente vuole trovare annunci di immobili di suo interesse. & & \\
 Preconditions & Nessuna precondizione. & & \\
-Success End Condition & Il sistema tiene traccia della ricerca effettuata, salvandola tra le “Ricerche recenti”. & & \\
-Fail End Condition & Il sistema tiene traccia della ricerca effettuata, salvandola tra le “Ricerche recenti”. & & \\
+Success End Condition & Se l'utente si é autenticato, il sistema salva la ricerca effettuata tra le “Ricerche recenti”. & & \\
+Fail End Condition & Se l'utente si é autenticato, il sistema salva la ricerca effettuata tra le “Ricerche recenti”. & & \\
 Primary Actor & Cliente & & \\
 Trigger & Il Cliente clicca sulla barra di ricerca di \ref{fig:M-RI1}. & & \\
 Main Scenario & Step & Cliente & Sistema   \\
@@ -34,7 +34,7 @@ Main Scenario & Step & Cliente & Sistema   \\
  Clicca su “Cerca”. & \\
  & 4 & & Mostra \ref{fig:M-RI3} \\
  & 5 & Clicca su un risultato. & \\
- & 6 & & Mostra \ref{fig:M-RI4} Termina use case. \\
+ & 6 & & Mostra \ref{fig:M-FA3} Termina use case. \\
 Extension A: 
 click su una ricerca recente & Step & Cliente & Sistema \\
  & 3.a & Clicca su una ricerca recente. & \\

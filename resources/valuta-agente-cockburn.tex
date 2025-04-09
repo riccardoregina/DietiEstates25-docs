@@ -10,10 +10,7 @@
 	hlines = {}, %per le cornici orizzontali
     % Merge delle righe/colonne:
     cell{1-7}{2} = {c = 3}{10cm, halign = l},
-    cell{8}{1} = {r = 4}{valign = t},
-    cell{12}{1} = {r = 4}{valign = t},
-    cell{16}{1} = {r = 4}{valign = t},
-    cell{20}{2} = {c = 3}{10cm, halign = l}
+    cell{8}{1} = {r = 5}{valign = t}
 }
 USE CASE & Valuta Agente & & \\
 Goal in Context & Il Cliente vuole valutare la propria esperienza con un Agente & & \\
@@ -21,18 +18,11 @@ Preconditions & Il Cliente deve essere autenticato & & \\
 Success End Condition & Il sistema tiene traccia della valutazione del Cliente & & \\
 Fail End Condition & Il sistema non tiene traccia della valutazione del Cliente & & \\
 Primary Actor & Cliente & & \\
-Trigger & Il Cliente clicca sul pulsante "Aggiungi una recensione" della schermata X & & \\
+Trigger & Il Cliente clicca sul pulsante "Aggiungi una recensione" della schermata \ref{fig:M-RI4} & & \\
 Main Scenario & Step & Cliente & System   \\
  & 1 & Trigger & \\
- & 2 & & \\
- & 3 & & \\
-Extension A & Step & Cliente & System   \\
- & & & \\
- & & & \\
- & & & \\
-Extension B & Step & Cliente & System   \\
- & & & \\
- & & & \\
- & & & \\
-Open Issues & & & \\
+ & 2 & & Mostra la schermata \ref{fig:M-VA1}\\
+ & 3 & Inserisce una valutazione da una a cinque stelle e,
+ opzionalmente, un commento. Clicca poi sul pulsante "Invia Recensione". & \\
+ & 4 & & Registra la recensione e termina caso d'uso. \\
 \end{longtblr}

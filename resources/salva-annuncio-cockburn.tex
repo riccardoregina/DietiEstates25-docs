@@ -10,33 +10,20 @@
 	hlines = {}, %per le cornici orizzontali
     % Merge delle righe/colonne:
     cell{1-7}{2} = {c = 3}{10cm, halign = l},
-    cell{8}{1} = {r = 4}{valign = t},
-    cell{12}{1} = {r = 4}{valign = t},
-    cell{16}{1} = {r = 4}{valign = t},
-    cell{20}{2} = {c = 3}{10cm, halign = l}
+    cell{8}{1} = {r = 3}{valign = t}
 }
 USE CASE & Salva Annuncio & & \\
 Goal in Context & Il Cliente vuole salvare l'annuncio trovato tra i preferiti
 in modo tale da accedervi piú velocemente in futuro & & \\
-Preconditions & Il Cliente deve essere autenticato & & \\
+Preconditions & Il Cliente deve essersi autenticato & & \\
 Success End Condition & Il sistema aggiunge l'annuncio tra gli annunci salvati
 del Cliente & & \\
 Fail End Condition & Il sistema non aggiunge l'annuncio tra gli annunci salvati
 del Cliente & & \\
 Primary Actor & Cliente & & \\
-Trigger & Il Cliente clicca sul pulsante a forma di stella presente sull'annuncio
-d'interesse, nella schermata X & & \\
+Trigger & Il cliente clicca sul pulsante a forma di stella presente sull'annuncio
+d'interesse, nella schermata \ref{fig:M-RI4} & & \\
 Main Scenario   & Step & Cliente & System   \\
  & 1 & Trigger & \\
- & 2 & & \\
- & 3 & & \\
-Extension A & Step & Cliente & System   \\
- & & & \\
- & & & \\
- & & & \\
-Extension B & Step & Cliente & System   \\
- & & & \\
- & & & \\
- & & & \\
-Open Issues & & & \\
+ & 2 & & Tiene traccia dell'aggiunta ai preferiti e termina use case. \\
 \end{tblr}
