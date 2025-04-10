@@ -62,10 +62,91 @@ La scelta di un unico Cloud Provider permette una riduzione notevole della laten
 comunicazioni tra i componenti del sistema.
 
 \section{Design del back-end}
-\subsection{Diagramma delle classi}
-
 
 \subsection{Persistenza dei dati}
+Si presenta adesso lo schema per la persistenza dei dati.
+Si é deciso, per alcune tabelle (Listing, User, Notification, Search) di definire
+una struttura dotata di ereditarietá, per un'integrazione pulita con lo schema dei dati
+del servizio Spring Boot. L'integrazione tra Spring Boot e il database é gestita da JPA.
+
+É fornita ora una brevissima panoramica sulle possibili strategie per
+l'implementazione di strutture gerarchiche basate sull'ereditarietá in un
+DBMS relazionale.
+\subsubsection{Ereditarietá in un DBMS relazionale}
+I DBMS relazionali non supportano nativamente l'ereditarietá per come essa é nota
+ai conoscitori dei linguaggi object-oriented. Tuttavia, é possibile applicare dei
+noti pattern per sopperire a questa limitazione:
+\begin{list}{$\cdot$}{}
+    \item Single Table: si memorizzano tutti gli attributi di tutte le 
+    classi (superclasse e sottoclassi) in un'unica tabella. Include un campo discriminatore 
+    che indica il tipo specifico di ogni record.
+    \item Joined Table: si crea crea una tabella separata per ogni classe nella gerarchia. 
+    La tabella della sottoclasse contiene solo gli attributi specifici e una chiave esterna 
+    che punta alla tabella della superclasse.
+    \item Table Per Class: si crea una tabella separata e completa per ogni sottoclasse, 
+    includendo sia gli attributi ereditati dalla superclasse che quelli specifici.
+\end{list}
+
+\begin{table}[h]
+    \centering
+    \begin{tabularx}{\textwidth}{|X|X|X|X|}
+    \hline
+    \textbf{Aspetto} & \textbf{Single Table} & \textbf{Joined Table} & \textbf{Table Per Class} \\
+    \hline
+    \textbf{Spreco di dati} & 
+    Alto. Tutti gli attributi di tutte le sottoclassi sono memorizzati in un'unica tabella, con molti valori NULL per gli attributi non pertinenti alla classe specifica. & 
+    Basso. Ogni tabella contiene solo gli attributi specifici della classe corrispondente, minimizzando lo spazio inutilizzato. & 
+    Medio. Ciascuna tabella è completa ma si ha duplicazione degli attributi della superclasse in ogni tabella delle sottoclassi. \\
+    \hline
+    \textbf{Velocità di lettura} & 
+    Alta. Nessun JOIN necessario per recuperare un oggetto completo, le query sono generalmente più veloci. & 
+    Media/Bassa. Richiede JOIN tra le tabelle della gerarchia per ricostruire oggetti completi, penalizzando le performance con gerarchie profonde. & 
+    Alta per singole sottoclassi. Bassa per query polimorfiche sulla superclasse che richiedono UNION di tutte le tabelle delle sottoclassi. \\
+    \hline
+    \textbf{Velocità di inserimento} & 
+    Alta. Un singolo INSERT in un'unica tabella. & 
+    Media. Richiede INSERT multipli (uno nella tabella della superclasse e uno nella tabella della sottoclasse). & 
+    Alta. Un singolo INSERT in una tabella concreta. \\
+    \hline
+    \textbf{Velocità di aggiornamento} & 
+    Alta. UPDATE su un'unica tabella. & 
+    Media. Può richiedere UPDATE su più tabelle se si modificano attributi ereditati. & 
+    Alta per attributi specifici, ma richiede aggiornamenti multipli se si modificano gli stessi attributi in classi differenti. \\
+    \hline
+    \end{tabularx}
+    \caption{Confronto tra strategie di implementazione dell'ereditarietà in JPA}
+    \label{tab:inheritance-comparison}
+    \end{table}
+
+Alla luce di questa disamina, si é deciso di:
+\begin{list}{$\cdot$}{}
+    \item applicare la strategia Joined Table per la gerarchia con radice la tabella USER, in quanto
+    is prevede che il numero di utenti di tipo CUSTOMER sia maggiore 
+    degli altri di diversi ordini di grandezza.
+    \item applicare la strategia Single Table per le gerarchie di SEARCH,
+    LISTING: HOUSE é, secondo le stime, la sottoclasse che
+    avrá piú istanze, di gran lunga sulle altre.
+    \item applicare la strategia Single Table per la gerarchia di NOTIFICATION:
+    i campi nulli sono pochi. Inoltre, la tabella NOTIFICATION é una mera tabella
+    di outbox (si parlerá di seguito dell'outbox pattern), per cui le sue righe sono
+    destinate ad essere eliminate in tempi brevi.
+\end{list}
+
+Si motiva adesso l'esistenza della tabella NOTIFICATION.
+\subsubsection{L'OUTBOX Pattern}
+Il pattern Outbox rappresenta una soluzione elegante al problema della comunicazione affidabile 
+tra servizi distribuiti, specialmente in contesti in cui la coerenza dei dati é fondamentale.
+Nel nostro caso, non parliamo di coerenza di dati, ma semplicemente di affidabilitá di comunicazione:
+una notifica persa é potenzialmente un grave problema nell'esperienza degli utenti: si pensi al caso 
+in cui un agente accetti una richiesta di visita, ma la notifica non arrivi al cliente.
+
+L'idea alla base è semplice: sfruttare le proprietá ACID di un DBMS (tipicamente relazionale) per 
+inserire un evento e la comunicazione di esso all'interno della stessa transazione, inserendo la 
+comunicazione in una tabella di OUTBOX.
+Nel nostro caso, la tabella NOTIFICATION é una tabella di OUTBOX, da cui poi il sistema
+potrá attingere per inviare le comunicazioni. Una volta consumate, le comunicazioni sono
+rimosse dalla tabella.
+
 \begin{figure}[h]
     \centering
     \includegraphics[width=\textwidth]{assets/diagrams/db-scheme/users.png}
@@ -96,7 +177,7 @@ comunicazioni tra i componenti del sistema.
 
 \subsection{L'architettura esagonale}
 La scelta di un framework opinionated come Spring Boot impone un’architettura ben precisa: 
-architettura esagonale, anche detta port-and-adapters, formalizzata da A. Cockburn.
+l'architettura esagonale, anche detta port-and-adapters, formalizzata da A. Cockburn.
 
 L’obiettivo di questa architettura é rendere il cosiddetto core facilmente testabile, 
 manutenibile e molto agile di fronte a cambiamenti ed estensioni, permettendo di non 
@@ -134,6 +215,26 @@ L’architettura esagonale:
 \end{list}
 
 \subsection{Diagramma dei package}
+Vengono presentati adesso i package che compongono il software.
+\begin{list}{$\cdot$}{}
+    \item auth: al suo interno é definita la logica di autenticazione del sistema ed
+    e le operazioni su generici utenti. Viene impiegato al suo interno Spring Security,
+    il modulo di Spring per la gestione della sicurezza.
+    \item customer: al suo interno é definita la logica per la gestione
+    dei clienti.
+    \item agency: al suo interno é definita la logica per la gestione
+    dell'agenzia e delle figure che la compongono: amministratore, gestori, agenti.
+    \item listing: contiene la logica di creazione, gestione, ricerca di annunci.
+    \item visit: contiene la logica per quanto concerne le richieste di visita e 
+    le visite.
+    \item agentreview: al suo interno vi é la logica di creazione e visualizzazione di 
+    valutazioni degli agenti.
+    \item starredlisting: contiene la logica della funzionalitá secondo cui
+    un utente puó inserire tra i preferiti un annuncio.
+    \item notification: definisce la logica di creazione ed invio delle
+    notifiche.
+\end{list}
+
 \begin{figure}[h]
     \centering
     \includegraphics[width=\textwidth]{assets/diagrams/class-diagram/package.png}
