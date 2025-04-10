@@ -62,6 +62,38 @@ La scelta di un unico Cloud Provider permette una riduzione notevole della laten
 comunicazioni tra i componenti del sistema.
 
 \section{Design del back-end}
+\subsection{Diagramma delle classi}
+
+
+\subsection{Persistenza dei dati}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{assets/diagrams/db-scheme/users.png}
+    \caption{Lo schema di persistenza degli utenti.}
+    \label{fig:Schema di persistenza degli utenti}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{assets/diagrams/db-scheme/notification.png}
+    \caption{Lo schema di persistenza delle notifiche.}
+    \label{fig:Schema di persistenza delle notifiche}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{assets/diagrams/db-scheme/listing.png}
+    \caption{Lo schema di persistenza degli annunci.}
+    \label{fig:Schema di persistenza degli annunci}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{assets/diagrams/db-scheme/search.png}
+    \caption{Lo schema di persistenza delle ricerche effettuate dagli utenti.}
+    \label{fig:Schema di persistenza delle ricerche effettuate dagli utenti}
+\end{figure}
+
 \subsection{L'architettura esagonale}
 La scelta di un framework opinionated come Spring Boot impone un’architettura ben precisa: 
 architettura esagonale, anche detta port-and-adapters, formalizzata da A. Cockburn.
@@ -101,7 +133,42 @@ L’architettura esagonale:
     di vista del deployment, come modular monolith e microservizi.
 \end{list}
 
-\subsection{Design}
+\subsection{Diagramma dei package}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{assets/diagrams/class-diagram/package.png}
+    \caption{Il diagramma dei package.}
+    \label{fig:Diagramma dei package}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{assets/diagrams/class-diagram/class-diagram-1.png}
+    \caption{Parte del diagramma delle classi.}
+    \label{fig:Parte 1 del diagramma delle classi}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{assets/diagrams/class-diagram/class-diagram-2.png}
+    \caption{Parte del diagramma delle classi.}
+    \label{fig:Parte 2 del diagramma delle classi}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{assets/diagrams/class-diagram/class-diagram-3.png}
+    \caption{Parte del diagramma delle classi.}
+    \label{fig:Parte 3 del diagramma delle classi}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{assets/diagrams/class-diagram/class-diagram-4.png}
+    \caption{Parte del diagramma delle classi.}
+    \label{fig:Parte 4 del diagramma delle classi}
+\end{figure}
+
 %Insert the design diagram
 %Insert the class diagram
 %Insert the model class diagram
