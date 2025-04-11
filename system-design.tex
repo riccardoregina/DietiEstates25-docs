@@ -28,14 +28,14 @@ futuro in quanto la geo-distribuzione non è, per adesso, obiettivo del sistema.
 
 Sia front-end che back-end verranno descritti piú a fondo nelle sezioni successive.
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{assets/diagrams/high-level-arch.png}
     \caption{L'architettura di alto livello}
     \label{fig:Architettura di alto livello}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{assets/diagrams/high-level-arch-tecnologies.png}
     \caption{L'architettura di alto livello, con tecnologie}
@@ -87,7 +87,7 @@ noti pattern per sopperire a questa limitazione:
     includendo sia gli attributi ereditati dalla superclasse che quelli specifici.
 \end{list}
 
-\begin{table}[h]
+\begin{table}[H]
     \centering
     \begin{tabularx}{\textwidth}{|X|X|X|X|}
     \hline
@@ -147,28 +147,28 @@ Nel nostro caso, la tabella NOTIFICATION é una tabella di OUTBOX, da cui poi il
 potrá attingere per inviare le comunicazioni. Una volta consumate, le comunicazioni sono
 rimosse dalla tabella.
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{assets/diagrams/db-scheme/users.png}
     \caption{Lo schema di persistenza degli utenti.}
     \label{fig:Schema di persistenza degli utenti}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{assets/diagrams/db-scheme/notification.png}
     \caption{Lo schema di persistenza delle notifiche.}
     \label{fig:Schema di persistenza delle notifiche}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{assets/diagrams/db-scheme/listing.png}
     \caption{Lo schema di persistenza degli annunci.}
     \label{fig:Schema di persistenza degli annunci}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{assets/diagrams/db-scheme/search.png}
     \caption{Lo schema di persistenza delle ricerche effettuate dagli utenti.}
@@ -235,39 +235,74 @@ Vengono presentati adesso i package che compongono il software.
     notifiche.
 \end{list}
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{assets/diagrams/class-diagram/package.png}
     \caption{Il diagramma dei package.}
     \label{fig:Diagramma dei package}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{assets/diagrams/class-diagram/class-diagram-1.png}
     \caption{Parte del diagramma delle classi.}
     \label{fig:Parte 1 del diagramma delle classi}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{assets/diagrams/class-diagram/class-diagram-2.png}
     \caption{Parte del diagramma delle classi.}
     \label{fig:Parte 2 del diagramma delle classi}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{assets/diagrams/class-diagram/class-diagram-3.png}
     \caption{Parte del diagramma delle classi.}
     \label{fig:Parte 3 del diagramma delle classi}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{assets/diagrams/class-diagram/class-diagram-4.png}
     \caption{Parte del diagramma delle classi.}
     \label{fig:Parte 4 del diagramma delle classi}
+\end{figure}
+
+\subsection{Diagrammi di sequenza}
+Vengono adesso documentati alcuni casi d'uso tramite diagramma di sequenza.
+
+\begin{figure}[H]
+    \adjustbox{width=1.4\textwidth,center}{
+        \includegraphics{assets/diagrams/sequence/ricerca-immobili.png}
+    }
+    \caption{Diagramma di sequenza del caso d'uso Ricerca Immobili.}
+    \label{fig:Diagramma di sequenza del caso d'uso Ricerca Immobili}
+\end{figure}
+
+\begin{figure}[H]
+    \adjustbox{width=1.4\textwidth,center}{
+        \includegraphics[width=\textwidth]{assets/diagrams/sequence/fissa-appuntamento.png}
+    }
+        \caption{Diagramma di sequenza del caso d'uso Fissa Appuntamento.}
+    \label{fig:Diagramma di sequenza del caso d'uso Fissa Appuntamento}
+\end{figure}
+
+\begin{figure}[H]
+    \adjustbox{width=1.4\textwidth,center}{
+        \includegraphics[width=\textwidth]{assets/diagrams/sequence/valuta-agente.png}
+    }
+        \caption{Diagramma di sequenza del caso d'uso Valuta Agente.}
+    \label{fig:Diagramma di sequenza del caso d'uso Valuta Agente}
+\end{figure}
+
+\begin{figure}[H]
+    \adjustbox{width=1.4\textwidth,center}{
+        \includegraphics[width=\textwidth]{assets/diagrams/sequence/salva-annuncio.png}
+    }
+    \caption{Diagramma di sequenza del caso d'uso Salva Annuncio.}
+    \label{fig:Diagramma di sequenza del caso d'uso Salva Annuncio}
 \end{figure}
 
 \section{Design del front-end}
