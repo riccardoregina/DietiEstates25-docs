@@ -3,6 +3,29 @@
 \usepackage{emptypage}
 \usepackage{array}
 \usepackage{hyperref}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\lstdefinestyle{javaStyle}{
+    language=Java,
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue}\bfseries,
+    stringstyle=\color{green!50!black},
+    commentstyle=\color{gray},
+    morecomment=[l][\color{magenta}]{\#},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    frame=single,
+    breaklines=true,
+    breakatwhitespace=false,
+    showstringspaces=false
+}
+\lstset{
+    style=javaStyle,
+    breaklines=true,
+    breakatwhitespace=false,
+    linewidth=0.95\textwidth  % Slightly narrower than text width
+}
 
 \usepackage{tabularray}
 \usepackage{tabularx}

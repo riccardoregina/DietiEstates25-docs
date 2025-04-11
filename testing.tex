@@ -90,6 +90,12 @@ I casi di test, secondo strategia R-WECT, sono:
     \end{tabularx}
     \caption{Casi di test secondo la strategia R-WECT}
 \end{table}
+
+\newpage
+\lstinputlisting[
+    style=javaStyle, 
+    caption={La classe di testing per JwtUtil.isTokenValid}, 
+]{assets/code/jwt-test.java}
     
 \subsection{AgentReviewService::createAgentReview}
 AgentReviewService::createAgentReview(AgentReviewDto, UserDetails) é invocato in contesti in 
@@ -118,6 +124,12 @@ in modo da considerare solo i casi di test reali. I casi di test sono:
     \end{tabularx}
     \caption{Casi di test per Agent ID}
 \end{table}
+
+\newpage
+\lstinputlisting[
+    style=javaStyle, 
+    caption={La classe di testing per AgentReviewService::createAgentReview}, 
+]{assets/code/agent-review-test.java}
     
 \subsection{StarredListingService::addStarredListing}
 StarredListingService::addStarredListing(String userEmail, String listingId) é invocato 
@@ -156,6 +168,12 @@ I casi di test sono:
     \end{tabularx}
     \caption{Casi di test per \texttt{listingId}}
 \end{table}
+
+\newpage
+\lstinputlisting[
+    style=javaStyle, 
+    caption={La classe di testing per StarredListingService::addStarredListing}, 
+]{assets/code/starred-listings-test.java}
     
 \subsection{VisitService::createVisitRequest}
 VisitService::createVisitRequest(VisitRequestDto visitRequestDto, UserDetails userDetails) 
@@ -205,4 +223,9 @@ I casi di test, secondo strategia R-WECT, sono:
     \end{tabularx}
     \caption{Casi di test secondo la strategia R-WECT per \texttt{listingId} e \texttt{availabilities}}
     \end{table}
-    
+
+\newpage
+\lstinputlisting[
+    style=javaStyle, 
+    caption={La classe di testing per VisitService::createVisitRequest}, 
+]{assets/code/visit-request-test.java}
