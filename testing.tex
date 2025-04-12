@@ -229,3 +229,24 @@ I casi di test, secondo strategia R-WECT, sono:
     style=javaStyle, 
     caption={La classe di testing per VisitService::createVisitRequest}, 
 ]{assets/code/visit-request-test.java}
+
+\section{Qualità del codice}
+Oltre al testing é importante l'attivitá di analisi statica del codice
+tramite strumenti di linting, che permettono in modo automatico di
+rilevare problemi di sicurezza, cattive pratiche etc.
+
+Durante lo sviluppo, é stato utilizzato Sonarqube IDE all'interno
+dell'ambiente di sviluppo e Sonarqube Cloud per analisi piú approfondite.
+
+Ad ogni modifica sul branch main, Sonarqube viene invocato per un'analisi
+su tutta la codebase. Se il quality gate viene superato, allora le modifiche
+vengono accettate, rifiutate altrimenti.
+É stato adottato il quality gate standard \emph{Sonar way}.
+
+\begin{figure}[H]
+    \adjustbox{width=1.4\textwidth,center}{
+        \includegraphics[width=\textwidth]{assets/code/sonarqube.png}
+    }
+    \caption{Schermata di Sonarqube Cloud}
+    \label{fig:Sonarqube Cloud}
+\end{figure}
