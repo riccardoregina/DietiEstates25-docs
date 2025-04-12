@@ -178,7 +178,7 @@ I casi di test sono:
 \subsection{VisitService::createVisitRequest}
 VisitService::createVisitRequest(VisitRequestDto visitRequestDto, UserDetails userDetails) 
 é invocata in contesti in cui la validitá di userDetails é garantita. 
-Per quanto riguarda visitRequestDto(String listingId, List<Availability> availabilities), 
+Per quanto riguarda visitRequestDto(String listingId, List$<$Availability$>$ availabilities), 
 é garantito che:
 \begin{list}{$\cdot$}{}
     \item listingId sia non nullo e non vuoto.
@@ -187,7 +187,7 @@ Per quanto riguarda visitRequestDto(String listingId, List<Availability> availab
 \end{list}
 
 Le classi di equivalenza sono quindi:
-\begin{table}[h!]
+\begin{table}[H]
     \centering
     \renewcommand{\arraystretch}{1.4}
     \begin{tabularx}{\textwidth}{|X|X|X|}
@@ -207,14 +207,14 @@ Le classi di equivalenza sono quindi:
 \end{table}
 
 I casi di test, secondo strategia R-WECT, sono:
-\begin{table}[h!]
+\begin{table}[H]
     \centering
     \renewcommand{\arraystretch}{1.4}
     \begin{tabularx}{\textwidth}{|X|X|X|}
     \hline
     \textbf{listingId} & \textbf{availabilities} & \textbf{Risultato Atteso} \\
     \hline
-    listingId errato & Timeslot validi & \texttt{EntityNotExistsException} \\
+    listingId errato & Timeslot validi & \makecell[l]{\texttt{EntityNotExists}\\\texttt{Exception}} \\
     \hline
     listingId valido & Lista vuota & \texttt{VisitRequest} senza disponibilità specificate \\
     \hline
